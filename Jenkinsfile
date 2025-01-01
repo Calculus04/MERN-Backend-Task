@@ -17,19 +17,25 @@ pipeline {
         }
  
         stage('Install Dependencies') {
-            steps {
-                // Set the PATH and install dependencies using npm
-                bat 'npm install eslint --save-dev'
-                bat 'npm install'
-            }
-        }
- 
-        stage('Lint') {
-            steps {
-                // Run linting to ensure code quality
-               bat 'npm run lint'
-            }
-        }
+         steps {
+         script {
+             dir('backend') {
+             bat 'npm install'
+                 bat 'npm install -g eslint'
+ }
+ }
+ }
+ }
+ stage('Lint') {
+ steps {
+ script{
+ dir('backend') {
+ bat 'npm run lint'
+ }
+ }
+ }
+ }
+
  
         stage('Build') {
             steps {
