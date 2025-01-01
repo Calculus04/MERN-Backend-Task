@@ -40,7 +40,7 @@ pipeline {
                 sonar-scanner -Dsonar.projectKey=backend-task1^
                     -Dsonar.sources=. ^
                     -Dsonar.host.url=http://localhost:9000 ^
-                    -Dsonar.token=sqp_62b19649a9e3e5f15df9fc4c89708622b04643e4
+                    -Dsonar.token=sqp_fbb14788a585fcd7b9d5ffaf391042ecafb17056
                 '''
             }
         }
