@@ -19,20 +19,15 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Set the PATH and install dependencies using npm
-                bat '''
-                set PATH=%NODEJS_HOME%;%PATH%
-                npm install
-                '''
+                bat 'npm install eslint --save-dev'
+                bat 'npm install'
             }
         }
  
         stage('Lint') {
             steps {
                 // Run linting to ensure code quality
-                bat '''
-                set PATH=%NODEJS_HOME%;%PATH%
-                npm run lint
-                '''
+               bat 'npm run lint'
             }
         }
  
